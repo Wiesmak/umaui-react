@@ -15,7 +15,12 @@ export default function Progress({
 }: ProgressProps) {
   return (
     <div>
-      <progress className={styles.progress} min={min} max={max} value={value} />
+      <progress
+        className={styles.progress}
+        max={max}
+        value={value}
+        aria-valuemin={min}
+      />
       {showProgressText ? (
         <div className={styles["progress-text"]}>
           {value}/{max}
