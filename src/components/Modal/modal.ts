@@ -1,17 +1,15 @@
-import { ref } from "vue";
+import { useCallback, useState } from "react";
 
 export function useModal() {
-  const isOpen = ref(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  function openModal() {
-    if (isOpen.value) return;
-    isOpen.value = true;
-  }
+  const openModal = useCallback(() => {
+    setIsOpen(true);
+  }, []);
 
-  function closeModal() {
-    if (!isOpen.value) return;
-    isOpen.value = false;
-  }
+  const closeModal = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   return {
     isOpen,

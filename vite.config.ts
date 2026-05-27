@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { globSync } from "glob";
 import path from "node:path";
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
+import react from "@vitejs/plugin-react";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
@@ -17,10 +17,10 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   plugins: [
-    vue(),
+    react(),
     dts({
       tsconfigPath: "./tsconfig.app.json",
-      exclude: ["**/*.stories.ts"],
+      exclude: ["**/*.stories.ts", "**/*.stories.tsx"],
     }),
     libInjectCss(),
   ],
@@ -35,10 +35,13 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ["vue"],
+      external: ["react", "react-dom", "react/jsx-runtime"],
       input: Object.fromEntries(
-        globSync("src/**/*.{ts,vue}")
-          .filter((file) => !file.includes(".stories.ts"))
+        globSync("src/**/*.{ts,tsx}")
+          .filter(
+            (file) =>
+              !file.includes(".stories.ts") && !file.includes(".stories.tsx")
+          )
           .map((file) => [
             relative(
               "src",
@@ -49,7 +52,9 @@ export default defineConfig({
       ),
       output: {
         globals: {
-          vue: "Vue",
+          react: "React",
+          "react-dom": "ReactDOM",
+          "react/jsx-runtime": "jsxRuntime",
         },
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",

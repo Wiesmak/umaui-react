@@ -40,29 +40,31 @@ function main() {
   fs.mkdirSync(root, { recursive: true });
 
   // Files
-  const vuePath = path.join(root, `${pascal}.vue`);
+  const componentPath = path.join(root, `${pascal}.tsx`);
   const cssPath = path.join(root, `${pascal}.module.scss`);
-  const storyPath = path.join(root, `${pascal}.stories.ts`);
+  const storyPath = path.join(root, `${pascal}.stories.tsx`);
 
-  const vueContent = `\
-<template>
-  ${pascal} component
-</template>
-
-<script setup lang="ts">
+  const componentContent = `\
 import styles from './${pascal}.module.scss';
 
-interface ${pascal}Props {}
-const props = withDefaults(defineProps<${pascal}Props>(), {});
-</script>
+interface ${pascal}Props {
+  className?: string;
+}
+
+export default function ${pascal}({ className }: ${pascal}Props) {
+  const combinedClassName = [styles.component, className].filter(Boolean).join(' ');
+  return <div className={combinedClassName}>${pascal} component</div>;
+}
 `;
 
   const cssContent = `\
+.component {
+}
 `;
 
   const storyContent = `\
-import type { Meta, StoryObj } from '@storybook/vue3';
-import ${pascal} from './${pascal}.vue';
+import type { Meta, StoryObj } from '@storybook/react';
+import ${pascal} from './${pascal}';
 
 const meta: Meta<typeof ${pascal}> = {
   title: 'Components/${pascal}',
@@ -75,27 +77,23 @@ type Story = StoryObj<typeof ${pascal}>;
 
 export const Default: Story = {
   args: {},
-  render: (args) => ({
-    components: { ${pascal} },
-    setup() { return { args }; },
-    template: '<${pascal} v-bind="args"></${pascal}>',
-  }),
+  render: (args) => <${pascal} {...args} />,
 };
 `;
 
-  fs.writeFileSync(vuePath, vueContent, "utf8");
+  fs.writeFileSync(componentPath, componentContent, "utf8");
   fs.writeFileSync(cssPath, cssContent, "utf8");
   fs.writeFileSync(storyPath, storyContent, "utf8");
 
   console.log(`Component ${pascal} created at ${root}`);
   console.log("Files:");
-  console.log(" -", path.basename(vuePath));
+  console.log(" -", path.basename(componentPath));
   console.log(" -", path.basename(cssPath));
   console.log(" -", path.basename(storyPath));
   console.log("");
   console.log("Add the following export to src/main.ts:");
   console.log(
-    `  export { default as ${pascal} } from "./components/${pascal}/${pascal}.vue";`
+    `  export { default as ${pascal} } from "./components/${pascal}/${pascal}";`
   );
   console.log("");
   console.log("Consumer Import example:");

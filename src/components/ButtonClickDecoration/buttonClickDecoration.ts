@@ -1,19 +1,21 @@
-import { ref, nextTick } from "vue";
+import { useCallback, useState } from "react";
 
 export function useButtonClickDecoration() {
-  const showDecoration = ref<boolean>(false);
+  const [showDecoration, setShowDecoration] = useState(false);
 
-  function triggerDecoration() {
-    if (showDecoration.value) {
-      showDecoration.value = false;
-      nextTick(() => (showDecoration.value = true));
-    } else {
-      showDecoration.value = true;
-    }
-  }
+  const triggerDecoration = useCallback(() => {
+    setShowDecoration((current) => {
+      if (current) {
+        setTimeout(() => setShowDecoration(true), 0);
+        return false;
+      }
+      return true;
+    });
+  }, []);
 
   return {
     showDecoration,
+    setShowDecoration,
     triggerDecoration,
   };
 }
