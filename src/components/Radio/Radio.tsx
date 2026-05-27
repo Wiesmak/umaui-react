@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
+import type { InputHTMLAttributes, ReactNode } from "react"
 import styles from "./Radio.module.scss";
 
-interface RadioProps {
+interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
   caption?: string;
   value?: string | number | null;
-  modelValue?: string | number | null;
+  checked?: boolean;
   onChange?: (value: string | number | null) => void;
   children?: ReactNode;
 }
@@ -12,21 +12,23 @@ interface RadioProps {
 export default function Radio({
   caption = "",
   value = null,
-  modelValue = null,
+  checked = false,
   onChange,
   children,
+  name,
+  ...rest
 }: RadioProps) {
   const labelText = children ?? caption;
-  const isChecked = modelValue === value;
 
   return (
     <label className={styles.container}>
       <input
         type="radio"
-        name="radio"
+        name={name}
         value={value ?? ""}
         className={styles.input}
-        checked={isChecked}
+        checked={checked}
+        {...rest}
         onChange={() => onChange?.(value)}
       />
       <span className={styles.control} />

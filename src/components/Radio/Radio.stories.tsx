@@ -26,15 +26,16 @@ export const Default: Story = {
         <Radio
           {...args}
           value="standard"
-          modelValue={value}
+          checked={value === "standard"}
           onChange={setValue}
         >
           Standard
         </Radio>
+        &#32;
         <Radio
           {...args}
           value="basic"
-          modelValue={value}
+          checked={value === "basic"}
           onChange={setValue}
         >
           Basic

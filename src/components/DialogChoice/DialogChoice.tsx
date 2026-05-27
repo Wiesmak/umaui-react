@@ -1,7 +1,7 @@
 import type { MouseEvent, ReactNode } from "react";
 import styles from "./DialogChoice.module.scss";
 import ButtonClickDecoration from "../ButtonClickDecoration/ButtonClickDecoration";
-import { useButtonClickDecoration } from "../ButtonClickDecoration/buttonClickDecoration";
+import { useButtonClickDecoration } from "../ButtonClickDecoration/useButtonClickDecoration";
 import Cleat from "../Icons/Cleat";
 
 interface DialogChoiceProps {

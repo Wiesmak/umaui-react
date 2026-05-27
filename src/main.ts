@@ -6,6 +6,6 @@ export { default as Radio } from "./components/Radio/Radio";
 export { default as Tabs } from "./components/Tabs/Tabs";
 export { default as Input } from "./components/Input/Input";
 export { default as Modal } from "./components/Modal/Modal";
-export { useModal } from "./components/Modal/modal";
+export { useModal } from "./components/Modal/useModal";
 export { default as Heading } from "./components/Heading/Heading";
 export { default as Progress } from "./components/Progress/Progress";

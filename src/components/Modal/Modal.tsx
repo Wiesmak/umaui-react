@@ -69,7 +69,8 @@ export default function Modal({
     if (isOpen) {
       setDelayedOpen(true);
       setAnimationState("enter");
-      const enterTimeout = setTimeout(() => setAnimationState(null), 100);
+
+      const enterTimeout = setTimeout(() => setAnimationState(null), 180);
       document.addEventListener("keydown", closeModalOnEscape);
       return () => {
         clearTimeout(enterTimeout);
@@ -78,13 +79,18 @@ export default function Modal({
     }
 
     document.removeEventListener("keydown", closeModalOnEscape);
-    setAnimationState("leave");
-    const timeout = setTimeout(() => {
-      setDelayedOpen(false);
-      setAnimationState(null);
-    }, 100);
 
-    return () => clearTimeout(timeout);
+    const buttonWaitTimeout = setTimeout(() => {
+      setAnimationState("leave");
+
+      setTimeout(() => {
+        setDelayedOpen(false);
+        setAnimationState(null);
+      }, 100);
+
+    }, 200);
+
+    return () => clearTimeout(buttonWaitTimeout);
   }, [isOpen, closeModalOnEscape]);
 
   const modalClassName = useMemo(

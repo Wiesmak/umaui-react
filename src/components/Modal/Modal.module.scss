@@ -66,12 +66,13 @@
       }
     }
 
-  .footer {
-    background-color: #fafbfa;
-    padding: 1.625rem;
-    border: 0.125rem solid #ffffff;
-    border-top: 0rem;
-    border-radius: 0rem 0rem 0.75rem 0.75rem;
+    .footer {
+      background-color: #fafbfa;
+      padding: 1.625rem;
+      border: 0.125rem solid #ffffff;
+      border-top: 0rem;
+      border-radius: 0rem 0rem 0.75rem 0.75rem;
+    }
   }
 }
 
@@ -123,7 +124,9 @@
 }
 
 .content-enter-active {
-  animation: show-content 0.1s linear 1;
+  > * {
+    animation: show-content 0.1s linear 1;
+  }
 }
 @keyframes show-content {
   0% {
@@ -146,5 +149,4 @@
   100% {
     transform: translateY(0);
   }
-}
 }

@@ -33,9 +33,9 @@
   box-sizing: border-box;
   flex-shrink: 0;
   background-image: linear-gradient(
-    180deg,
-    var(--outer-gradient-start) 60%,
-    var(--outer-gradient-end) 100%
+          180deg,
+          var(--outer-gradient-start) 60%,
+          var(--outer-gradient-end) 100%
   );
 
   box-shadow: 0rem 0.063rem 0.063rem rgba(0, 0, 0, 0.25);
@@ -53,9 +53,9 @@
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   background-image: linear-gradient(
-    180deg,
-    var(--inner-gradient-start) 60%,
-    var(--inner-gradient-end) 100%
+          180deg,
+          var(--inner-gradient-start) 60%,
+          var(--inner-gradient-end) 100%
   );
 }
 
