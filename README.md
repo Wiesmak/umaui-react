@@ -1,6 +1,8 @@
 # Umaui 🐎
 
-Vue libary to replicate UI from the popular videogame "Umamusume: Pretty Derby"
+React libary to replicate UI from the popular videogame "Umamusume: Pretty Derby"
+
+This is a very bad rewrite of the original Vue version, proper rewrite comming soon™
 
 ## Components
 
