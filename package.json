@@ -16,7 +16,7 @@
     "build-storybook": "storybook build",
     "gc": "npx tsx ./scripts/generate-component.ts"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
