@@ -61,6 +61,7 @@ export default defineConfig({
       },
     },
   },
+  // @ts-ignore
   test: {
     projects: [
       {

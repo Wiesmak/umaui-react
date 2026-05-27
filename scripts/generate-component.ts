@@ -3,10 +3,10 @@ import fs from "fs";
 import path from "path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dirname =
-  typeof __dirname !== "undefined"
-    ? __dirname
-    : path.dirname(fileURLToPath(import.meta.url));
+// const dirname =
+//   typeof __dirname !== "undefined"
+//     ? __dirname
+//     : path.dirname(fileURLToPath(import.meta.url));
 
 function toPascalCase(name: string) {
   return name
@@ -14,12 +14,12 @@ function toPascalCase(name: string) {
     .replace(/^[a-z]/, (c) => c.toUpperCase());
 }
 
-function toKebabCase(name: string) {
-  return name
-    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-    .replace(/[\s_]+/g, "-")
-    .toLowerCase();
-}
+// function toKebabCase(name: string) {
+//   return name
+//     .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+//     .replace(/[\s_]+/g, "-")
+//     .toLowerCase();
+// }
 
 function main() {
   const [, , rawName] = process.argv;
@@ -29,7 +29,7 @@ function main() {
   }
 
   const pascal = toPascalCase(rawName);
-  const kebab = toKebabCase(pascal);
+  // const kebab = toKebabCase(pascal);
 
   const root = path.resolve(__dirname, "..", "src", "components", pascal);
   if (fs.existsSync(root)) {
