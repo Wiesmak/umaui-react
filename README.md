@@ -1,8 +1,8 @@
 # Umaui 🐎
 
-React libary to replicate UI from the popular videogame "Umamusume: Pretty Derby"
+React library to replicate UI from the popular video game "Umamusume: Pretty Derby"
 
-This is a very bad rewrite of the original Vue version, proper rewrite comming soon™
+This is a very bad rewrite of the original Vue version, proper rewrite coming soon™
 
 ## Components
 
@@ -38,8 +38,9 @@ This is a very bad rewrite of the original Vue version, proper rewrite comming s
 - [ ] Skill
 - [ ] Ribbon
 - [ ] Tag
+- [x] Horseshoes Background
 
-## Developement
+## Development
 
 Run storybook dev server
 
