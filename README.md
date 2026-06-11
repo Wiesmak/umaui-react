@@ -39,7 +39,7 @@ This is a very bad rewrite of the original Vue version, proper rewrite coming so
 - [ ] Skill
 - [ ] Ribbon
 - [ ] Tag
-- [x] Horseshoes Background
+- [x] HorseshoesBackground
 
 ## Development
 

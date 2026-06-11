@@ -15,7 +15,7 @@ interface HorseshoesBackgroundProps {
 }
 
 export default function HorseshoesBackground({ className, config, children }: HorseshoesBackgroundProps) {
-  const combinedClassName = [styles.horseshoesBackground, className].filter(Boolean).join(' ');
+  const combinedClassName = [styles["horseshoes-background"], className].filter(Boolean).join(' ');
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
