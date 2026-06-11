@@ -16,6 +16,12 @@ const defaultTemplate = `
   </Heading>
 `.trim();
 
+const customTemplate = `
+  <Heading width="16rem" backgroundColor="#615b7d" textColor="#ffffff">
+    <h3>Custom Heading</h3>
+  </Heading>
+`.trim();
+
 export const Default: Story = {
   args: {},
   parameters: {
@@ -31,3 +37,23 @@ export const Default: Story = {
     </Heading>
   ),
 };
+
+export const Custom: Story = {
+  args: {
+    width: "16rem",
+    backgroundColor: "#615b7d",
+    textColor: "#ffffff",
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: customTemplate,
+      },
+    },
+  },
+  render: (args) => (
+    <Heading {...args}>
+      <h3>Custom Heading</h3>
+    </Heading>
+  ),
+}

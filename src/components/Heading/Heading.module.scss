@@ -1,8 +1,9 @@
 .heading {
   --text-color: #ffffff;
   --background-color: #79ca0b;
+  --width: 100%;
 
-  width: 100%;
+  width: var(--width);
   padding: 0.125rem 0.313rem;
 
   background-color: var(--background-color);
@@ -15,7 +16,7 @@
   mask-composite: exclude;
 
   * {
-    margin: 0px;
+    margin: 0;
     font-size: 1rem;
     font-weight: 500;
     color: var(--text-color);
