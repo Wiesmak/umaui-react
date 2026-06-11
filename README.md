@@ -15,6 +15,7 @@ This is a very bad rewrite of the original Vue version, proper rewrite coming so
   - [ ] Round
   - [ ] Back
 - [x] DialogChoice
+  - [x] With Image
 - [ ] Card
 - [ ] SpeechBubble
 - [ ] ChatMessage

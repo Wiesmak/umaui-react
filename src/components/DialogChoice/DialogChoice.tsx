@@ -7,6 +7,7 @@ import Cleat from "../Icons/Cleat";
 interface DialogChoiceProps {
   color?: "green" | "yellow" | "pink";
   label?: string;
+  image?: ReactNode;
   children?: ReactNode;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
@@ -14,6 +15,7 @@ interface DialogChoiceProps {
 export default function DialogChoice({
   color = "green",
   label = "",
+  image,
   children,
   onClick,
 }: DialogChoiceProps) {
@@ -28,11 +30,19 @@ export default function DialogChoice({
 
   return (
     <button
-      className={[styles["uma-dialog-choice"], styles[color]].join(" ")}
+      className={[
+        styles["uma-dialog-choice"],
+        styles[color],
+        image ? styles["uma-dialog-choice-image"] : "",
+      ].join(" ")}
       onClick={handleClick}
     >
       <span className={styles.overlay} />
       <span className={styles.inner}>
+        {image ? (
+            <span className={styles.image}>{image}</span>
+        ) : null}
+
         <Cleat width="1.562rem" className={styles.icon} />
 
         <span className={styles.text}>{content}</span>

@@ -32,7 +32,7 @@
   border-color: var(--normal);
   border-radius: 0.625rem;
 
-  padding: 0rem 0rem;
+  padding: 0 0;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -40,7 +40,7 @@
 
   > .overlay {
     position: absolute;
-    height: 0rem;
+    height: 0;
     background-color: var(--normal);
     opacity: 0.3;
     z-index: 12;
@@ -121,5 +121,43 @@
         transform: translate(0.625rem, -1.25rem) rotate(-34deg);
       }
     }
+  }
+}
+
+.uma-dialog-choice-image {
+  width: 21.553rem;
+  height: 27.553rem;
+
+  > .inner {
+    grid-template-rows: 22fr 0.125rem 4.678fr;
+    gap: 0.125rem 0;
+
+    &::before {
+      content: '';
+      grid-row: 2;
+      grid-column: 1 / -1;
+      background-color: var(--normal);
+      margin-left: -0.125rem;
+      margin-right: -0.125rem;
+    }
+  }
+
+  .image {
+    grid-column: 2;
+    height: 22rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image > * {
+    max-height: 100%;
+    max-width: 100%;
+    aspect-ratio: auto;
+  }
+
+  .icon, .text, .decoration {
+    grid-row: 3;
   }
 }
