@@ -32,9 +32,29 @@ export const Pink: Story = {
   },
 };
 
-export const withImage: Story = {
+export const greenWithImage: Story = {
   args: {
     color: "green",
+    label: "Agnes Tachyon",
+    image: (
+        <img src="https://static.wikia.nocookie.net/omniversal-battlefield/images/e/e6/Agnes_Tachyon.webp/revision/latest/scale-to-width-down/600?cb=20260204211504" alt="Agnes Tachyon" />
+    ),
+  },
+}
+
+export const yellowWithImage: Story = {
+  args: {
+    color: "yellow",
+    label: "Agnes Tachyon",
+    image: (
+        <img src="https://static.wikia.nocookie.net/omniversal-battlefield/images/e/e6/Agnes_Tachyon.webp/revision/latest/scale-to-width-down/600?cb=20260204211504" alt="Agnes Tachyon" />
+    ),
+  },
+}
+
+export const pinkWithImage: Story = {
+  args: {
+    color: "pink",
     label: "Agnes Tachyon",
     image: (
         <img src="https://static.wikia.nocookie.net/omniversal-battlefield/images/e/e6/Agnes_Tachyon.webp/revision/latest/scale-to-width-down/600?cb=20260204211504" alt="Agnes Tachyon" />

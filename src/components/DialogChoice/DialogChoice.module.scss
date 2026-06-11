@@ -2,18 +2,28 @@
   --normal: #94db31;
   --light: #c6ef84;
   --lighter: #deffb0;
+  --background: #c5e1a03b;
+  --shadow: #667551c7;
 }
 
 .yellow {
   --normal: #f1b600;
   --light: #ffeb8e;
   --lighter: #fef4ac;
+  --background: #eee5a94a;
+  --shadow: #6e6a52c2;
 }
 
 .pink {
   --normal: #ff85b9;
   --light: #ffd0e7;
   --lighter: #fee5ec;
+  --background: #dfc1c93b;
+  --shadow: #615557a3;
+}
+
+.tachyon {
+  --normal: #E2E868;
 }
 
 .uma-dialog-choice {
@@ -143,15 +153,21 @@
   }
 
   .image {
-    grid-column: 2;
+    grid-column: span 3;
     height: 22rem;
     width: 100%;
-    display: flex;
+    display: inline-grid;
+    grid-template-columns: 3.188rem 1fr 5.125rem;
+    grid-template-rows: 1fr;
     align-items: center;
-    justify-content: center;
+    background-color: var(--background);
+    background-clip: border-box;
+    border-radius: 0.5rem;
+    filter: drop-shadow(0 0 0.75rem var(--shadow));
   }
 
   .image > * {
+    grid-column: 2;
     max-height: 100%;
     max-width: 100%;
     aspect-ratio: auto;
