@@ -16,6 +16,7 @@ interface ModalProps {
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  className?: string;
   children?: ReactNode;
   footer?: ReactNode;
 }
@@ -29,9 +30,11 @@ export default function Modal({
   open,
   defaultOpen = false,
   onOpenChange,
+  className,
   children,
   footer,
 }: ModalProps) {
+  const contentClassName = [styles.content, className].filter(Boolean).join(' ');
   const isControlled = open !== undefined;
   const [internalOpen, setInternalOpen] = useState(defaultOpen);
   const [delayedOpen, setDelayedOpen] = useState(
@@ -132,7 +135,7 @@ export default function Modal({
           <div className={styles.title}>{title}</div>
           <div
             className={[
-              styles.content,
+              contentClassName,
               animationState === "enter" ? styles["content-enter-active"] : null,
             ]
               .filter(Boolean)
